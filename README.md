@@ -8,7 +8,7 @@ Prometheus data is stored locally and Loki logs are stored on Google Cloud, the 
 ## Prometheus
 Prometheus' official documentation includes an Integrations section that lists must of the Remote Endpoints and Storage, listed [here](https://prometheus.io/docs/operating/integrations/#remote-endpoints-and-storage)
 
-## Possible Solutions
+## Possible Solutions for Prometheus
 * JFrog Artifactory REST API - [link](https://www.jfrog.com/confluence/display/JFROG/Artifactory+REST+API#ArtifactoryRESTAPI-DeployArtifact)
 
 ```json
@@ -40,7 +40,7 @@ PUT /libs-release-local/my/jar/1.0/jar-1.0.jar
 Loki's documentation on storage lists all supported stores, unfortunately, JFrog isn't one of them, the list is found in [here](https://grafana.com/docs/loki/latest/operations/storage/). There, at the moment, **Loki doesn't support JFrog as a storage service.**
 
 ### Supported stores for index:
-* Single Store (botldb-shipper)
+* Single Store (boltdb-shipper)
 * Amazon DynamoDB
 * Google Bigtable
 * Apache Cassandra
@@ -54,8 +54,11 @@ Loki's documentation on storage lists all supported stores, unfortunately, JFrog
 * Google Cloud Storage
 * Filesystem
 
+## Possible Solutions on Loki
+* As JFrog is not a direct solution to store data in, it would be a good alternative to look into using Single Store for both indexes and chunks, as this option would save costs against using AWS or GCP solutions. 
+
 ## Conclusion
-For Prometheus, it might be possible to integrate JFrog Artifactory as a storage service, trying out its API, or trying out the Prom-migrator tool which may also be helpful for these purposes. On the other hand, for Loki, it is not possible to use JFrog as a storage solution.
+For Prometheus, it might be possible to integrate JFrog Artifactory as a storage service, trying out its API, or trying out the Prom-migrator tool which may also be helpful for these purposes. On the other hand, for Loki, it is not possible to use JFrog as a storage solution directly, so it would be good to consider using something else that is officially supported by Loki.
 
 ## Resources
 * [Prometheus integrations for endpoints and storage](https://prometheus.io/docs/operating/integrations/#remote-endpoints-and-storage)
