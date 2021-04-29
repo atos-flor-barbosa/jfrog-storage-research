@@ -54,6 +54,8 @@ Loki's documentation on storage lists all supported stores, unfortunately, JFrog
 * Google Cloud Storage
 * Filesystem
 
+## Conclusion
+For Prometheus, it might be possible to integrate JFrog Artifactory as a storage service, trying out its API, or trying out the Prom-migrator tool which may also be helpful for these purposes. On the other hand, for Loki, it is not possible to use JFrog as a storage solution.
 
 ## Resources
 * [Prometheus integrations for endpoints and storage](https://prometheus.io/docs/operating/integrations/#remote-endpoints-and-storage)
